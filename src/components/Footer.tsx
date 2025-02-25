@@ -25,7 +25,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-md font-semibold mb-4">Contact Us</h3>
                     <ul className="space-y-2 text-neutral-300">
-                        <li>{footerContent.contactInfo.address}</li>
+
                         <li>Email: <a href={`mailto:${footerContent.contactInfo.email}`} className="hover:text-white">{footerContent.contactInfo.email}</a></li>
                     </ul>
                 </div>
