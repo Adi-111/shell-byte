@@ -2,7 +2,7 @@
 export const Hero = () => {
     return (
         <div className="flex flex-col items-center mt-6 lg:mt-20">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center text-white tracking-wide">
                 Get the right talent, at the right time, with our <span className="bg-gradient-to-r from-green-900 to-green-300 text-transparent bg-clip-text">Staffing Solutions</span>
             </h1>
             <p className="mt-10 text-lg text-center text-neutral-500 max-w-4xl">
