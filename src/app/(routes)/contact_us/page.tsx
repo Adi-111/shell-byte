@@ -76,7 +76,7 @@ const ContactUs = () => {
                 >
                     <div className="absolute inset-0 bg-black opacity-60"></div>
                     <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-green-900 to-green-300 text-transparent bg-clip-text">
                             Contact Us
                         </h1>
                         <p className="mt-4 text-lg text-white">
@@ -89,7 +89,7 @@ const ContactUs = () => {
 
 
                     {/* Contact Info & Form Section */}
-                    <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <section className=" flex items-center justify-center p-6">
                         {/* Contact Information Cards */}
 
 
