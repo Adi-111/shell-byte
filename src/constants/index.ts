@@ -73,7 +73,7 @@ export const footerContent = {
         email: "admin@shell-byte.com",
     },
     subscriptionText: "Subscribe to our newsletter for the latest updates.",
-    copyright: "© 2025 Shell Byte INC. All rights reserved.",
+    copyright: "© 2025 ShellByte INC. All rights reserved.",
 };
 
 export const about_us_features = [

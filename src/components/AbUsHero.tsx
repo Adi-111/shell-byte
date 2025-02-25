@@ -6,7 +6,7 @@ export const AbUsHero = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl text-center tracking-wide">
                 About{" "}
                 <span className="bg-gradient-to-r from-green-900 to-green-300 text-transparent bg-clip-text">
-                    Shell Byte INC
+                    ShellByte INC
                 </span>
             </h1>
             <p className="mt-10 text-lg text-center text-neutral-500 max-w-4xl">

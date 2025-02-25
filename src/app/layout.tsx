@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shell Byte INC | Staffing, Recruitment & IT Solutions",
+  title: "ShellByte INC | Staffing, Recruitment & IT Solutions",
   description:
     "Shell Byte INC specializes in staffing, recruitment, and IT services. We connect businesses with top-tier professionals and provide innovative IT solutions to drive growth and efficiency.",
   keywords: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         url: "/mainLogo.png", // Replace with your actual OG image URL
         width: 1200,
         height: 630,
-        alt: "Shell Byte INC | Staffing, Recruitment & IT Solutions",
+        alt: "ShellByte INC | Staffing, Recruitment & IT Solutions",
       },
     ],
     locale: "en_US",

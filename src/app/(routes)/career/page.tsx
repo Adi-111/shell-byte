@@ -18,7 +18,7 @@ export default function Career() {
                     </span>
                     </h1>
                     <p className="mt-4 text-md md:text-xl">
-                        Discover rewarding career opportunities at Shell Byte INC
+                        Discover rewarding career opportunities at ShellByte INC
                     </p>
                 </div>
             </section>
