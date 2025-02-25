@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Phone, Mail, MapPin } from "lucide-react";
+
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -91,37 +91,7 @@ const ContactUs = () => {
                     {/* Contact Info & Form Section */}
                     <section className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         {/* Contact Information Cards */}
-                        <div className="flex flex-col justify-center space-y-8">
-                            <div className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg transition hover:shadow-xl">
-                                <MapPin className="w-8 h-8 text-green-600" />
-                                <div>
-                                    <h3 className="text-xl font-semibold text-neutral-800">
-                                        Address
-                                    </h3>
-                                    <p className="text-neutral-600">
-                                        123 Shell Byte Street, Innovation City, Country
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg transition hover:shadow-xl">
-                                <Phone className="w-8 h-8 text-green-600" />
-                                <div>
-                                    <h3 className="text-xl font-semibold text-neutral-800">
-                                        Phone
-                                    </h3>
-                                    <p className="text-neutral-600">+1 (123) 456-7890</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-lg transition hover:shadow-xl">
-                                <Mail className="w-8 h-8 text-green-600" />
-                                <div>
-                                    <h3 className="text-xl font-semibold text-neutral-800">
-                                        Email
-                                    </h3>
-                                    <p className="text-neutral-600">info@shellbyteinc.com</p>
-                                </div>
-                            </div>
-                        </div>
+
 
                         {/* Contact Form */}
                         <div className="bg-white rounded-xl shadow-lg p-8 transition hover:shadow-xl">
