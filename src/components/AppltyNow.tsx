@@ -230,7 +230,7 @@ const ApplyNow = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-green-200 to-blue-200 flex items-center justify-center p-6">
+        <div className="min-h-screen  flex items-center justify-center p-6">
             <div className="bg-white shadow-2xl rounded-xl overflow-hidden max-w-5xl w-full">
                 <div className="p-10">
                     <h2 className="text-3xl font-extrabold text-gray-800 mb-8 text-center">

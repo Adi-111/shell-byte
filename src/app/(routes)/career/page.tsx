@@ -13,7 +13,10 @@ export default function Career() {
             >
                 <div className="absolute inset-0 bg-black opacity-40"></div>
                 <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
-                    <h1 className="text-3xl md:text-5xl font-bold">Build Your Future With Us</h1>
+                    <h1 className="text-3xl md:text-5xl font-bold">Build Your <span className="bg-gradient-to-r from-green-900 to-green-300 text-transparent bg-clip-text">
+                        Future With Us
+                    </span>
+                    </h1>
                     <p className="mt-4 text-md md:text-xl">
                         Discover rewarding career opportunities at Shell Byte INC
                     </p>
