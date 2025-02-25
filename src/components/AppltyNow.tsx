@@ -5,26 +5,51 @@ import { z } from "zod";
 
 // Define the schema for form validation
 const applicationSchema = z.object({
-    name: z.string()
+    name: z
+        .string()
         .min(2, "Name must be at least 2 characters")
         .regex(/^[A-Za-z ,]+$/, "Name can only contain letters and spaces"),
     email: z.string().email("Invalid email address"),
-    phone: z.string()
+    phone: z
+        .string()
         .min(10, "Phone number must be at least 10 digits")
         .regex(/^[0-9+ ]+$/, "Phone number can only contain numbers and +"),
     industry: z.string().min(1, "Industry is required"),
-    qualification: z.string()
+    qualification: z
+        .string()
         .regex(/^[A-Za-z ,]+$/, "Qualification can only contain letters and spaces")
         .optional(),
     apl_year: z.string().min(1, "Years of experience are required"),
     apl_month: z.string().min(1, "Months of experience are required"),
-    resume: z.instanceof(File)
+    resume: z
+        .instanceof(File)
         .refine((file) => file.size <= 5 * 1024 * 1024, "File size must be less than 5MB")
-        .refine((file) => ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"].includes(file.type), "File must be a PDF or DOCX"),
+        .refine(
+            (file) =>
+                [
+                    "application/pdf",
+                    "application/msword",
+                    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ].includes(file.type),
+            "File must be a PDF or DOCX"
+        ),
 });
 
+type FormData = {
+    name: string;
+    email: string;
+    phone: string;
+    industry: string;
+    qualification: string;
+    apl_year: string;
+    apl_month: string;
+    resume: File | null;
+};
+
+type Errors = Record<string, string>;
+
 const ApplyNow = () => {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         name: "",
         email: "",
         phone: "",
@@ -32,23 +57,22 @@ const ApplyNow = () => {
         qualification: "",
         apl_year: "",
         apl_month: "",
-        resume: null as File | null,
+        resume: null,
     });
 
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [errors, setErrors] = useState<Errors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
-        // Clear errors when the user starts typing
         setErrors((prev) => ({ ...prev, [name]: "" }));
     };
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files) {
-            setFormData((prev) => ({ ...prev, resume: e.target.files[0] }));
+            setFormData((prev) => ({ ...prev, resume: e.target.files![0] }));
             setErrors((prev) => ({ ...prev, resume: "" }));
         }
     };
@@ -99,7 +123,7 @@ const ApplyNow = () => {
         } catch (error) {
             if (error instanceof z.ZodError) {
                 // Handle Zod validation errors
-                const fieldErrors: Record<string, string> = {};
+                const fieldErrors: Errors = {};
                 error.errors.forEach((err) => {
                     if (err.path) {
                         fieldErrors[err.path[0]] = err.message;

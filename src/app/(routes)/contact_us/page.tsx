@@ -37,6 +37,12 @@ const ContactUs = () => {
                 body: JSON.stringify(formData),
             });
 
+            // Check if the response is JSON
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Invalid response from server");
+            }
+
             const result = await response.json();
 
             if (response.ok) {
@@ -146,10 +152,10 @@ const ContactUs = () => {
                                             id={field}
                                             name={field}
                                             placeholder={`Enter your ${field}`}
-                                            value={formData.email}
+                                            value={formData[field as keyof typeof formData]} // Corrected this line
                                             onChange={handleChange}
                                             required
-                                            className="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                                            className="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 text-black focus:ring-green-500 transition"
                                         />
                                     </div>
                                 ))}
