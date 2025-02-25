@@ -29,7 +29,7 @@ const CommitmentSection = () => {
 
             <div className="mt-12 text-center">
                 <p className="text-lg text-neutral-300">
-                    📌 Whether you're looking for top talent or the perfect job,
+                    📌 Whether you&apos;re looking for top talent or the perfect job,
                     <span className="text-green-400 font-semibold"> Shell Byte INC</span> is here to make it happen!
                 </p>
             </div>

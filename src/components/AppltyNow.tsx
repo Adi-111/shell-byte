@@ -48,6 +48,96 @@ type FormData = {
 
 type Errors = Record<string, string>;
 
+// Reusable InputField component
+type InputFieldProps = {
+    type: string;
+    name: string;
+    placeholder: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: string;
+};
+
+const InputField = ({ type, name, placeholder, value, onChange, error }: InputFieldProps) => (
+    <div>
+        <input
+            type={type}
+            name={name}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
+            aria-invalid={!!error}
+            aria-describedby={error ? `${name}-error` : undefined}
+        />
+        {error && (
+            <p id={`${name}-error`} className="text-sm text-red-500 mt-1">
+                {error}
+            </p>
+        )}
+    </div>
+);
+
+// Reusable SelectField component
+type SelectFieldProps = {
+    name: string;
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    options: Array<{ value: string | number; label: string }>;
+    placeholder: string;
+    error?: string;
+};
+
+const SelectField = ({ name, value, onChange, options, placeholder, error }: SelectFieldProps) => (
+    <div>
+        <select
+            name={name}
+            value={value}
+            onChange={onChange}
+            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
+            aria-invalid={!!error}
+            aria-describedby={error ? `${name}-error` : undefined}
+        >
+            <option value="">{placeholder}</option>
+            {options.map((option) => (
+                <option key={option.value} value={option.value}>
+                    {option.label}
+                </option>
+            ))}
+        </select>
+        {error && (
+            <p id={`${name}-error`} className="text-sm text-red-500 mt-1">
+                {error}
+            </p>
+        )}
+    </div>
+);
+
+// Reusable FileInput component
+type FileInputProps = {
+    name: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    error?: string;
+};
+
+const FileInput = ({ name, onChange, error }: FileInputProps) => (
+    <div>
+        <input
+            type="file"
+            name={name}
+            onChange={onChange}
+            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
+            aria-invalid={!!error}
+            aria-describedby={error ? `${name}-error` : undefined}
+        />
+        {error && (
+            <p id={`${name}-error`} className="text-sm text-red-500 mt-1">
+                {error}
+            </p>
+        )}
+    </div>
+);
+
 const ApplyNow = () => {
     const [formData, setFormData] = useState<FormData>({
         name: "",
@@ -254,53 +344,5 @@ const ApplyNow = () => {
         </div>
     );
 };
-
-// Reusable InputField component
-const InputField = ({ type, name, placeholder, value, onChange, error }: any) => (
-    <div>
-        <input
-            type={type}
-            name={name}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
-        />
-        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
-    </div>
-);
-
-// Reusable SelectField component
-const SelectField = ({ name, value, onChange, options, placeholder, error }: any) => (
-    <div>
-        <select
-            name={name}
-            value={value}
-            onChange={onChange}
-            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
-        >
-            <option value="">{placeholder}</option>
-            {options.map((option: any) => (
-                <option key={option.value || option} value={option.value || option}>
-                    {option.label || option}
-                </option>
-            ))}
-        </select>
-        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
-    </div>
-);
-
-// Reusable FileInput component
-const FileInput = ({ name, onChange, error }: any) => (
-    <div>
-        <input
-            type="file"
-            name={name}
-            onChange={onChange}
-            className={`w-full p-3 border ${error ? "border-red-500" : "border-gray-300"} rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition`}
-        />
-        {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
-    </div>
-);
 
 export default ApplyNow;

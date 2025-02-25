@@ -111,6 +111,9 @@ export const industries = [
     "Aviation/Aerospace",
     "Banking/Mortgage",
     "Staffing/Recruiting"
-];
+].map((industry) => ({
+    value: industry.toLowerCase().replace(/[^a-z]/g, "-"), // Convert to lowercase and replace spaces with hyphens
+    label: industry,
+}));
 
 
