@@ -68,8 +68,8 @@ const ContactUs = () => {
 
     return (
         <>
-            <div className="bg-gradient-to-br from-green-200 to-blue-300 ">
-                <Navbar className="text-green-900 " />
+            <div className="bg-black ">
+                <Navbar className=" " />
                 <section
                     className="relative bg-cover bg-center h-80 md:h-96"
                     style={{ backgroundImage: "url('/career-banner.jpg')" }}

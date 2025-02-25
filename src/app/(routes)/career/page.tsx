@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 
 export default function Career() {
     return (
-        <div className="bg-gradient-to-br from-green-200 to-blue-300 ">
-            <Navbar className="text-green-900 " />
+        <div className="bg-black ">
+            <Navbar />
             {/* Hero Section */}
             <section
                 className="relative bg-cover bg-center h-80 md:h-96"

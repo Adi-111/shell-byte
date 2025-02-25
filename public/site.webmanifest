@@ -1,0 +1,16 @@
+{
+    "name": "Shell Byte INC",
+    "short_name": "ShellByte",
+    "description": "Connecting businesses with top-tier professionals through staffing, recruitment, and IT solutions.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+      {
+        "src": "/public/mainLogo.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      }
+    ]
+  }
